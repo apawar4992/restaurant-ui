@@ -1,0 +1,54 @@
+  .menu-container{
+    flex-direction: column;
+    box-shadow: 0 1px 5px 0 rgba(0,0,0,.05);
+    border: 1px solid #e9ebee;
+  }
+  
+  .navbar{
+    display: flex;
+    flex-direction: row;
+    border-block: inherit;
+    border-block-color: revert;
+  }
+
+  .navbar-left{
+    max-width: 90%;
+    padding-left: 40px;
+    background-color: burlywood;
+    font-size: 18px;
+ }
+
+ .navbar-right{
+  max-width: 10%;
+  margin-left: 500px;
+  border-radius: 10px;
+  background-color: darkgrey;
+  margin-left: 1000px;
+  text-decoration: none;
+ }
+
+  .tab-horizontal-item{
+    color: black;
+    padding: 1rem 1rem;
+    display: inline-block;
+    border-right: 1px solid #e9ebee;
+    text-decoration: none;
+  }
+
+  .tab-horizontal-item:hover{
+    text-decoration: underline;
+    background-image: url(../Images/background-image.jpg);
+    background-size: auto 100%;
+  }
+
+  .deals-tile {
+    text-decoration: underline;
+  }
+
+  .tiles-container{
+    display: flex;
+    padding: 40px 40px 40px 40px;
+    flex-wrap: wrap;
+    row-gap: 2rem;
+    column-gap: 2rem;
+  }
