@@ -2,13 +2,13 @@ import React from "react";
 import TileComponent from "./TileComponent";
 import RestaurantMenuComponent from './MenuComponent';
 
-const Veg = () => {
+const NonVeg = () => {
     return (
         <>
             <RestaurantMenuComponent />
-            <TileComponent categoryType="Veg" />
+            <TileComponent categoryType="Non-Veg" />
         </>
     )
 }
 
-export default Veg;
+export default NonVeg;

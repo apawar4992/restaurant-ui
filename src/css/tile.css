@@ -1,12 +1,23 @@
+.tile-item__wrapper{
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    column-gap: 20px;
+    justify-content: flex-start;
+}
+
 .tile-item{
-    width: 25%;
-    padding-right: 20px;
+    width: 23%;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     padding-right: 10px;
     border-radius: 10px;
     align-items: center;
+    position: relative;
+    padding-bottom: 100px;
+    text-decoration: none;
+    box-shadow: 0px 23px 23px rgba(0,0,0, 0.15);
 }
 
 .tile-item:hover{
@@ -22,13 +33,13 @@
     margin: 10px 10px 10px 10px;
     width: 200px;
     height: 200px;
-    /* padding: 0px 10px 0px 10px; */
 }
 
 .tile-item__name{
     padding: 5px 5px 5px 5px;
     text-align: center;
     color: black;
+    text-decoration: none;
 }
 
 .tile-item__name__new-btn{
@@ -46,7 +57,8 @@
 }
 
 .tile-item__action{
-    margin: 10px 10px 10px 10px;
+    position: absolute;
+    bottom: 50px;
 }
 
 .tile-item__action__btn{
@@ -70,9 +82,7 @@
 .tile-edit-delete-btn{
     display: flex;
     flex-direction: row;
-    height: 30px;
-    width: 30px;
-    background-color: black;
+    align-items: center;
 }
 
 .tile-edit-btn{

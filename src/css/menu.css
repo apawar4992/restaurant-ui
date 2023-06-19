@@ -4,28 +4,109 @@
     border: 1px solid #e9ebee;
   }
   
-  .navbar{
+  .navbar-container{
     display: flex;
     flex-direction: row;
-    border-block: inherit;
-    border-block-color: revert;
+    flex-wrap: nowrap;
+    padding: 0;
+    border: 1px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.4);
+    border-bottom-color:rgba(0, 0, 0, 0.4) ;
   }
 
   .navbar-left{
-    max-width: 90%;
-    padding-left: 40px;
+    /* max-width: 90%; */
     background-color: burlywood;
     font-size: 18px;
  }
 
  .navbar-right{
-  max-width: 10%;
+  display: flex;
+  /* max-width: 40%; */
+  align-items: center;
   margin-left: 500px;
-  border-radius: 10px;
-  background-color: darkgrey;
-  margin-left: 1000px;
-  text-decoration: none;
+  background-color: burlywood;
+  margin-left: 0px;
  }
+
+ .navbar-right-login__btn{
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: beige;
+  margin: 15px 5px 15px 5px;
+ }
+
+ .navbar-right-addMenu__btn{
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: beige;
+  margin: 15px 5px 15px 5px;
+ }
+
+ .account-profile{
+  border-radius: 10px;
+  text-decoration: none;
+  background-color: beige;
+  margin: 15px 5px 15px 5px;
+ }
+
+ .account-profile-items{
+    list-style-type: none;
+    width: 100px;
+    border-radius: 10px;
+ }
+
+ .account-profile-user-icon{
+   height: 30px;
+   width: 30px;
+ }
+
+ .account-profile-icon{
+    display: flex;
+    align-items: center;
+ }
+ 
+ .account-profile-items__profile {
+  text-decoration: none;
+  color: white;
+ }
+
+ .disabled-profile{
+  text-decoration: none;
+  color: white;
+  cursor: default;
+}
+
+ .account-profile-items__logout {
+  text-decoration: none;
+  color: white;
+ }
+
+ .account-profile-toggle-icon {
+  width: 10px; 
+  height: 10px;
+ }
+
+ .app-logo {
+  height: 50px;
+  width: 100px;
+}
+
+.account-profile-container{
+    margin-left: 0;
+    padding: 0;
+    position: absolute;
+    opacity: 1;
+    transition-duration: 150ms;
+    background-color: rgba(0,0,0,.9);
+    border: 1px solid hsla(0,0%,100%,.15);
+    box-sizing: border-box;
+    color: #fff;
+    cursor: default;
+    font-size: 13px;
+    line-height: 21px;
+    border-radius: 10px;
+} 
 
   .tab-horizontal-item{
     color: black;

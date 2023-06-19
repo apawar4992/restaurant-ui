@@ -1,9 +1,13 @@
 import React from "react";
-import TileComponent from "./tile-component";
+import TileComponent from "./TileComponent";
+import RestaurantMenuComponent from './MenuComponent';
 
 const Drinks = () => {
     return (
-        <TileComponent categoryType="Drinks" />
+        <>
+            <RestaurantMenuComponent />
+            <TileComponent categoryType="Drinks" />
+        </>
     )
 }
 

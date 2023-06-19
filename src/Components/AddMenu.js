@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.css';
 import menuDataService from '../Services/menu-service';
 import Select from "react-select";
+import '../css/add-menu.css'
 
 function AddMenu() {
     const [selectedMenuTypeValue, setMenuTypeSelectedValue] = useState(null);
@@ -88,6 +89,9 @@ function AddMenu() {
 
     return (
         <div className="submit-form">
+            <h1 style={{ textAlign: "center" }}>
+                Add Menu
+            </h1>
             <div className="container">
                 <div className="form-group">
                     <label htmlFor="dishName">Name:</label>
