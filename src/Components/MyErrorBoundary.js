@@ -10,6 +10,7 @@ class MyErrorBoundary extends React.Component {
     }
 
     static getDerievedStateFromError(error) {
+        console.log('error:' + error);
         return { errorMessage: error.toString() };
     }
 

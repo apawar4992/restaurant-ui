@@ -1,0 +1,29 @@
+.basket-container{
+    max-height: 600px;
+}
+
+.place-order{
+
+}
+
+.place-order__btn{
+    border-radius: 10px;
+    /* height: 40px; */
+    border: none;
+    width: 220px;
+    height: 35px;
+    color: white;
+    background: green;
+}
+
+.place-order__btn__itemcount{
+    padding-right: 30px;
+}
+
+.place-order__btn__Title{
+    padding-right: 30px;
+}
+
+.place-order__btn__totalprice{
+
+}

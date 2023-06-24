@@ -128,7 +128,7 @@
 
   .tiles-container{
     display: flex;
-    padding: 40px 40px 40px 40px;
+    padding: 0px 0px 0px 0px;
     flex-wrap: wrap;
     row-gap: 2rem;
     column-gap: 2rem;

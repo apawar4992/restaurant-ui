@@ -1,9 +1,15 @@
+.tile-with-basket{
+display: flex;
+flex-direction: row;
+}
+
 .tile-item__wrapper{
     display: flex;
     flex-wrap: wrap;
     row-gap: 20px;
     column-gap: 20px;
     justify-content: flex-start;
+    max-width: 80%;
 }
 
 .tile-item{
@@ -99,4 +105,66 @@
 
 .tile-delete-img{
 
+}
+
+/* basket css */
+.basket-container{
+    max-height: 600px;
+}
+
+.place-order{
+
+}
+
+.place-order__btn{
+    border-radius: 10px;
+    /* height: 40px; */
+    border: none;
+    width: 220px;
+    height: 35px;
+    color: white;
+    background: green;
+}
+
+.place-order__btn__itemcount{
+    padding-right: 30px;
+}
+
+.place-order__btn__Title{
+    padding-right: 30px;
+}
+
+.place-order__btn__totalprice{
+
+}
+
+.basket-container{
+    overflow: scroll;
+}
+
+.cart-item-container{
+    padding-left: 0px;
+}
+
+.cart-item{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-item__image{
+    height: 40px;
+    width: 40px;
+}
+
+.cart-item__closeimg{
+    width: 17px;
+    height: 17px;
+}
+
+.cart-item__closebtn{
+    width: 30px;
+    height: 30px;
+    border: none;
+    background: white;
 }

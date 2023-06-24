@@ -3,11 +3,15 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import MyErrorBoundary from './Components/MyErrorBoundary';
+import myFallbackComponent from './Components/MyFallbackComponent';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    {/* <MyErrorBoundary FallbackComponent={myFallbackComponent}> */}
     <App />
+    {/* </MyErrorBoundary> */}
   </React.StrictMode>
 );
 
