@@ -9,6 +9,10 @@ class menuDataService {
         return http.get(`/Menu/GetMenuByCategoryType?categoryType=${category}`);
     }
 
+    GetMenuByName(name) {
+        return http.get(`/Menu/GetMenuByName?name=${name}`);
+    }
+
     getMenuTypes() {
         return http.get(`/Menu/GetMenuTypes`);
     }
@@ -21,8 +25,20 @@ class menuDataService {
         return http.get(`/Menu/GetCategories`);
     }
 
-    AddMenu(menu) {
-        return http.post(`/Menu`, menu);
+    AddMenu(menu, token) {
+        return http.post(`/Menu`, menu, {
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        });
+    }
+
+    UpdateMenu(menuName, menu) {
+        return http.put(`/Menu/${menuName}`, menu);
+    }
+
+    DeleteMenu(menuName) {
+        return http.delete(`/Menu/${menuName}`);
     }
 }
 

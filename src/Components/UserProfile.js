@@ -2,10 +2,13 @@ import React from "react";
 import { useState, useEffect } from "react";
 import registerUserService from '../Services/RegisterUser-Service';
 import RestaurantMenuComponent from './MenuComponent';
+import { useDispatch } from 'react-redux';
+import { add } from "../Store/cartSlice";
 
 export default function UserProfile() {
-
+    const dispatch = useDispatch();
     const [user, setUser] = useState([null]);
+
     useEffect(() => {
         var retrievedObject = localStorage.getItem('user');
         var userObject = JSON.parse(retrievedObject);
@@ -15,7 +18,9 @@ export default function UserProfile() {
     const fetchUserProfile = (email) => {
         registerUserService.GetUserProfile(email)
             .then(response => {
-                console.log(response.data);
+                console.log('res::' + response.data);
+                dispatch(add(response.data))
+
                 setUser(response.data)
             })
             .catch(e => {

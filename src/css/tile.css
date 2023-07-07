@@ -54,6 +54,7 @@ flex-direction: row;
     margin-left: 10px;
     color: black;
     background-color: darkkhaki;
+    border-radius: 5px;
 }
 .tile-item__desc{
     text-align: center;

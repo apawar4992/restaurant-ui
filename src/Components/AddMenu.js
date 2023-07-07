@@ -3,24 +3,69 @@ import 'bootstrap/dist/css/bootstrap.css';
 import menuDataService from '../Services/menu-service';
 import Select from "react-select";
 import '../css/add-menu.css'
+import { useNavigate, useParams } from "react-router-dom";
 
 function AddMenu() {
     const [selectedMenuTypeValue, setMenuTypeSelectedValue] = useState(null);
     const [categorySelectedValue, setCategorySelectedValue] = useState(null);
     const [menuTypes, setMenuTypes] = useState([]);
     const [categories, setCategoryTypes] = useState([]);
+    const [headlineLabel, setHeadlineLabel] = useState("");
+    // Get know its update or Add Menu call.
+    const { id } = useParams();
+    const navigate = useNavigate();
+
+    // For text properties
+    const [inputField, setInputField] = useState({
+        dishName: '',
+        price: '',
+        category: '',
+        description: '',
+        imageLink: ''
+    })
 
     useEffect(() => {
         fetchMenuTypesData();
         fetchCategoryTypesData();
+        // console.log("id:" + JSON.stringify(id));
+        var retrievedObject = localStorage.getItem('user');
+        var userObject = JSON.parse(retrievedObject);
+        if (id === 'Add') {
+            setHeadlineLabel("Add");
+        }
+        else {
+            fetchMenuByName();
+            console.log("id:::" + id);
+            setHeadlineLabel("Update");
+        }
     }, [])
+
+    // fetch menu by name
+    const fetchMenuByName = () => {
+        menuDataService.GetMenuByName(id)
+            .then(response => {
+                setInputField(() => ({
+                    name: response.data.name,
+                    price: response.data.price,
+                    description: response.data.description,
+                    imageLink: response.data.imageLink,
+                }));
+                // var xyz = response.data.Type;
+                // var xyz1 = response.data.Category;
+
+                // setMenuTypeSelectedValue(xyz);
+                // setCategorySelectedValue(xyz1);
+            })
+            .catch(e => {
+                console.log(e);
+            });
+    }
 
     // fetch menu types
     const fetchMenuTypesData = () =>
         //fetch data
         menuDataService.GetMenus()
             .then(response => {
-                console.log(response.data);
                 setMenuTypes(response.data)
             })
             .catch(e => {
@@ -49,15 +94,6 @@ function AddMenu() {
         setCategorySelectedValue(value);
     }
 
-    // For text properties
-    const [inputField, setInputField] = useState({
-        dishName: '',
-        price: '',
-        category: '',
-        description: '',
-        imageLink: ''
-    })
-
     const inputsHandler = (e) => {
         const { name, value } = e.target;
         setInputField((prevState) => ({
@@ -70,27 +106,45 @@ function AddMenu() {
         var menu = {
             Name: inputField.dishName,
             Price: inputField.price,
-            Type: selectedMenuTypeValue.value,
-            Category: categorySelectedValue.value,
+            // Type: selectedMenuTypeValue.value,
+            // Category: categorySelectedValue.value,
             Description: inputField.description,
             imageLink: inputField.imageLink
         }
+        var retrievedObject = localStorage.getItem('user');
+        var userObject = JSON.parse(retrievedObject);
+        // console.log("Token:" + userObject.token);
 
-        menuDataService.AddMenu(menu)
-            .then(response => {
-                console.log(response.data);
-                setCategoryTypes(response.data)
-                alert("Menu Added successfully.");
-            })
-            .catch(e => {
-                console.log(e);
-            });
+        if (id === 'Add') {
+            menuDataService.AddMenu(menu, userObject.token)
+                .then(response => {
+                    console.log(response.data);
+                    setCategoryTypes(response.data);
+                    alert("Menu Added successfully.");
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        }
+        else {
+            menuDataService.UpdateMenu(id, menu)
+                .then(response => {
+                    console.log(response.data);
+                    setCategoryTypes(response.data);
+                    alert("Menu Updated successfully.");
+                })
+                .catch(e => {
+                    console.log(e);
+                });
+        }
+
+        navigate('/');
     }
 
     return (
         <div className="submit-form">
             <h1 style={{ textAlign: "center" }}>
-                Add Menu
+                {headlineLabel} Menu
             </h1>
             <div className="container">
                 <div className="form-group">
@@ -155,14 +209,6 @@ function AddMenu() {
                 </div>
                 <br />
 
-                {/* <div class="input-group">
-                    <label class="col-md-5 col-form-label">Menu Image:</label>
-                    <br />
-
-                    <div className="select-image-btn">
-                        <input type="file" style={{ width: 150 + '%' }} class="form-control" id="file" name="file" accept="image/*" />
-                    </div>
-                </div> */}
                 <div className="form-group">
                     <label htmlFor="imageLink">Image Link:</label>
                     <input
