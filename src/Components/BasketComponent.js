@@ -15,7 +15,6 @@ export default function BasketComponent() {
 
     const PlaceAnOrder = () => {
 
-
     }
 
     return (
